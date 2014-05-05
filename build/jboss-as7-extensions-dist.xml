@@ -1,0 +1,65 @@
+<!--This script builds a zip for Teiid Server Installation -->
+<assembly>
+  
+  <id>dist</id>
+  
+  <formats>
+    <format>zip</format>
+  </formats>
+  
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <baseDirectory>teiid-${project.version}</baseDirectory>
+
+    <fileSets>
+          
+    <fileSet>
+        <directory>target/kits/jboss-as7</directory>
+        <outputDirectory>/</outputDirectory>      
+        <includes>
+          <include>**/*.sh</include>
+        </includes>   
+        <fileMode>755</fileMode>  
+    </fileSet> 
+          
+    <fileSet>
+        <directory>target/kits/jboss-as7</directory>
+        <outputDirectory>/</outputDirectory>      
+        <excludes>
+          <exclude>**/*.sh</exclude>
+        </excludes>      
+    </fileSet>
+    
+    <fileSet>
+        <directory>target/kits/jboss-as7</directory>
+        <outputDirectory>/</outputDirectory>      
+        <excludes>
+          <exclude>**/*.properties</exclude>
+        </excludes>      
+    </fileSet>
+    <fileSet>
+        <directory>../database-service/target</directory>
+        <outputDirectory>/bin/scripts</outputDirectory>      
+        <includes>
+          <include>database-service.jar</include>
+        </includes>      
+    </fileSet>                 
+  </fileSets>
+  <!--  these have external dependent clients like connectors-->
+  <moduleSets>
+
+    <moduleSet>
+      <useAllReactorProjects>true</useAllReactorProjects>
+      <includes>
+        <include>org.jboss.teiid.extensions:database-logging-appender</include>   
+      </includes>
+      <binaries>
+        <includeDependencies>false</includeDependencies>
+        <unpack>false</unpack>
+        <outputDirectory>modules/system/layers/base/org/jboss/teiid/extensions/main</outputDirectory>
+      </binaries>
+    </moduleSet>
+
+
+    </moduleSets>  
+    
+</assembly>

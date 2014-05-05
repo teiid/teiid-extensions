@@ -1,0 +1,1 @@
+Dependencies: org.jboss.teiid.common-core,org.jboss.teiid.api,org.jboss.teiid.admin,javax.api,org.jboss.teiid.extensions

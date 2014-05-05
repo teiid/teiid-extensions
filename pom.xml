@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+      <groupId>org.jboss</groupId>
+      <artifactId>jboss-parent</artifactId>
+      <version>10</version>
+    </parent> 
+    <name>extensions</name>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jboss.teiid</groupId>
+    <artifactId>extensions</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <url>http://teiid.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
+        <version.jboss.bom>1.0.4.Final-redhat-4</version.jboss.bom>
+        <version.jboss.as>7.2.0.Final</version.jboss.as>
+        <version.teiid.project>8.7.0.Final</version.teiid.project>
+        <version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>1.0.1.Final</version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>
+
+        <!-- other plugin versions -->
+        <version.ear.plugin>2.6</version.ear.plugin>
+        <version.ejb.plugin>2.3</version.ejb.plugin>
+        <version.surefire.plugin>2.10</version.surefire.plugin>
+        <version.war.plugin>2.1.1</version.war.plugin>
+
+        <!-- maven-compiler-plugin -->
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>1.6</maven.compiler.source>
+    </properties>
+
+	<scm>
+        <connection>scm:git:git://github.com/teiid/teiid-extensions.git</connection>
+        <developerConnection>scm:git:git@github.com:teiid/teiid-extensions.git</developerConnection>
+        <url>http://github.com/teiid/teiid-extensions</url>
+	    <tag>HEAD</tag>
+    </scm>
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License</name>
+			<url>http://www.gnu.org/licenses/lgpl.html</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>Steve Hawkins</name>
+			<id>steve</id>
+			<email>shawkins@redhat.com</email>
+			<organization>Red Hat</organization>
+			<roles>
+				<role>Project Lead</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+		<developer>
+			<name>Ramesh Reddy</name>
+			<id>ramesh</id>
+			<email>rareddy@redhat.com</email>
+			<organization>Red Hat</organization>
+			<roles>
+				<role>Project Lead</role>
+			</roles>
+			<timezone>-6</timezone>
+		</developer>
+    </developers>
+    <profiles>
+        <profile>
+          <id>release</id>
+          <properties>
+            <maven.javadoc.skip>true</maven.javadoc.skip>
+          </properties>
+            <modules>
+                <module>gui</module>
+                <module>app</module>
+                <module>dist</module>
+            </modules>
+        </profile>
+    </profiles>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-javaee-6.0-with-tools</artifactId>
+                <version>${version.jboss.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
+                <version>${version.jboss.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Define the version of the EJB jar so that we don't need 
+                to repeat ourselves in every module -->
+            <dependency>
+                <groupId>org.jboss.teiid.extensions</groupId>
+                <artifactId>database-service</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+            </dependency>
+			<dependency>
+				<groupId>org.jboss.teiid.extensions</groupId>
+				<artifactId>database-logging-appender</artifactId>
+				<version>${project.version}</version>
+			</dependency>            
+	        <dependency>
+	            <groupId>org.jboss.teiid</groupId>
+	            <artifactId>teiid-api</artifactId>
+	            <version>${version.teiid.project}</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>org.jboss.teiid</groupId>
+	            <artifactId>teiid-common-core</artifactId>
+	            <version>${version.teiid.project}</version>
+	        </dependency>
+			<dependency>
+				<groupId>org.jboss.teiid</groupId>
+				<artifactId>teiid-client</artifactId>
+				<version>${version.teiid.project}</version>
+			</dependency>
+            <dependency>
+                <groupId>org.jboss.teiid</groupId>
+                <artifactId>teiid-admin</artifactId>
+                <version>${version.teiid.project}</version>
+            </dependency>            
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.0-api</artifactId>
+                <version>${version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>database-service</module>
+        <module>database-logging-appender</module>
+        <module>build</module>
+    </modules>
+</project>
