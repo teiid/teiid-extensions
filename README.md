@@ -16,9 +16,11 @@ Teiid extensions and utilities
  
  cd <jboss-eap-6.x>/bin
  
- edit "scripts/teiid-add-database-logger.cli", add the {jdbc-url}, {driver-name}, {user} and {password}. 
- Also make sure the jdbc driver is installed in the system, then execute
+ edit "scripts/teiid-logger-ds.properties", add the {db.driver_name}, {db.url}, {db.user} and {db.password} properties. 
+ By default these values are set to H2 database configured with JBoss EAP for development purposes.
+  
+ Also make sure the jdbc driver for the database you are using is correctly installed in the system, then execute
  
- ./jboss-cli.sh --file=scripts/teiid-add-database-logger.cli
+ ./jboss-cli.sh --file=scripts/teiid-add-database-logger.cli --properties=./scripts/teiid-logger-ds.properties
  
- to install database logger for "COMMAND_LOG" and "AUDIT_LOG"
+ to install database logger for "COMMAND_LOG" and "AUDIT_LOG" in Teiid.

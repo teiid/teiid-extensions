@@ -2,7 +2,7 @@ connect
 
 batch
 
-/subsystem=datasources/data-source=teiid-log-ds:add(jndi-name=java:/teiid-log-ds,driver-name={driver-name}, connection-url={jdbc-url}, user-name={name}, password={password})
+/subsystem=datasources/data-source=teiid-log-ds:add(jndi-name=java:/teiid-log-ds,  driver-name="${db.driver_name}",  connection-url="${db.url}", user-name="${db.user}", password="${db.password}", enabled=true, use-java-context=true )
 /subsystem=datasources/data-source=teiid-log-ds:enable
 
 deploy scripts/database-service.jar
@@ -15,4 +15,3 @@ deploy scripts/database-service.jar
 /subsystem=logging/logger=org.teiid.AUDIT_LOG:add(level=DEBUG, handlers=[handler=AUDIT_LOG])
 
 run-batch
- 
