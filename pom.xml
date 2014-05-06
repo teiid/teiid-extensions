@@ -16,7 +16,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
-        <version.jboss.bom>1.0.4.Final-redhat-4</version.jboss.bom>
+        <version.jboss.bom>1.0.7.Final</version.jboss.bom>
         <version.jboss.as>7.2.0.Final</version.jboss.as>
         <version.teiid.project>8.7.0.Final</version.teiid.project>
         <version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>1.0.1.Final</version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>
