@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <parent>
-      <groupId>org.jboss</groupId>
-      <artifactId>jboss-parent</artifactId>
-      <version>10</version>
-    </parent> 
+	<parent>
+    	<groupId>org.jboss.integration-platform</groupId>
+    	<artifactId>jboss-integration-platform-parent</artifactId>
+    	<version>6.0.0.CR9</version>	
+	</parent>
     <name>extensions</name>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.teiid</groupId>
@@ -15,6 +15,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.org.jboss.integration-platform>6.0.0.CR9</version.org.jboss.integration-platform>
+
         <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
         <version.jboss.bom>1.0.7.Final</version.jboss.bom>
         <version.jboss.as>7.2.0.Final</version.jboss.as>
@@ -84,6 +86,22 @@
 
     <dependencyManagement>
         <dependencies>
+       <!-- Core BOM imports -->
+			<dependency>
+				<groupId>org.jboss.integration-platform</groupId>
+				<artifactId>jboss-integration-platform-bom</artifactId>
+				<version>${version.org.jboss.integration-platform}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency> 		
+			<dependency>
+				<groupId>org.jboss.teiid</groupId>
+				<artifactId>teiid-parent</artifactId>
+				<version>${version.teiid.project}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>  
+         
             <dependency>
                 <groupId>org.jboss.bom</groupId>
                 <artifactId>jboss-javaee-6.0-with-tools</artifactId>
