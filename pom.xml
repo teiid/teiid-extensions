@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <parent>
-      <groupId>org.jboss</groupId>
-      <artifactId>jboss-parent</artifactId>
-      <version>10</version>
-    </parent> 
+	<parent>
+    	<groupId>org.jboss.integration-platform</groupId>
+    	<artifactId>jboss-integration-platform-parent</artifactId>
+    	<version>6.0.0.CR9</version>	
+	</parent>
+
     <name>extensions</name>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.teiid</groupId>
@@ -15,21 +16,11 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
+        <version.org.jboss.integration-platform>6.0.0.CR9</version.org.jboss.integration-platform>
+        
         <version.jboss.bom>1.0.7.Final</version.jboss.bom>
-        <version.jboss.as>7.2.0.Final</version.jboss.as>
         <version.teiid.project>8.7.0.Final</version.teiid.project>
-        <version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>1.0.1.Final</version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>
 
-        <!-- other plugin versions -->
-        <version.ear.plugin>2.6</version.ear.plugin>
-        <version.ejb.plugin>2.3</version.ejb.plugin>
-        <version.surefire.plugin>2.10</version.surefire.plugin>
-        <version.war.plugin>2.1.1</version.war.plugin>
-
-        <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <maven.compiler.source>1.6</maven.compiler.source>
     </properties>
 
 	<scm>
@@ -84,6 +75,20 @@
 
     <dependencyManagement>
         <dependencies>
+           <dependency>
+            	<groupId>org.jboss.integration-platform</groupId>
+            	<artifactId>jboss-integration-platform-bom</artifactId>
+            	<version>${version.org.jboss.integration-platform}</version>
+            	<scope>import</scope>
+            	<type>pom</type>
+          </dependency> 		
+          <dependency>
+				<groupId>org.jboss.teiid</groupId>
+				<artifactId>teiid-parent</artifactId>
+             	<version>${version.teiid.project}</version>
+             	<type>pom</type>
+             	<scope>import</scope>
+          </dependency>          
             <dependency>
                 <groupId>org.jboss.bom</groupId>
                 <artifactId>jboss-javaee-6.0-with-tools</artifactId>
@@ -135,7 +140,7 @@
             <dependency>
                 <groupId>org.hibernate.javax.persistence</groupId>
                 <artifactId>hibernate-jpa-2.0-api</artifactId>
-                <version>${version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api}</version>
+                <version>${version.org.hibernate.javax.persistence}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
