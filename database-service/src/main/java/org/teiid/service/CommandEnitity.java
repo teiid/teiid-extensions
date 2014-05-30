@@ -37,9 +37,9 @@ import org.teiid.logging.CommandLogMessage.Event;
 public class CommandEnitity implements Serializable {
 	private static final long serialVersionUID = -8904500450865053632L;
     
-	private long id = 0L;
-	private Timestamp time;
-	private String eventType;
+    private long id = 0L;
+    private Timestamp time;
+    private String eventType;
     private String sessionId;
     private String requestId;
     private String vdbName;
@@ -164,7 +164,7 @@ public class CommandEnitity implements Serializable {
         this.applicationName = value;
     }
     
-    @Column(name = "transactionid", length=50)
+    @Column(name = "transactionid", length=100)
     public String getTransactionID() {
         return this.transactionId;
     }
