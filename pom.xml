@@ -16,22 +16,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.org.jboss.integration-platform>6.0.0.CR9</version.org.jboss.integration-platform>
-
-        <version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
+        
         <version.jboss.bom>1.0.7.Final</version.jboss.bom>
-        <version.jboss.as>7.2.0.Final</version.jboss.as>
         <version.teiid.project>8.7.0.Final</version.teiid.project>
-        <version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>1.0.1.Final</version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api>
 
-        <!-- other plugin versions -->
-        <version.ear.plugin>2.6</version.ear.plugin>
-        <version.ejb.plugin>2.3</version.ejb.plugin>
-        <version.surefire.plugin>2.10</version.surefire.plugin>
-        <version.war.plugin>2.1.1</version.war.plugin>
-
-        <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <maven.compiler.source>1.6</maven.compiler.source>
     </properties>
 
 	<scm>
@@ -153,7 +141,7 @@
             <dependency>
                 <groupId>org.hibernate.javax.persistence</groupId>
                 <artifactId>hibernate-jpa-2.0-api</artifactId>
-                <version>${version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api}</version>
+                <version>${version.org.hibernate.javax.persistence}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
