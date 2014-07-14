@@ -54,7 +54,7 @@ public class CommandEnitity implements Serializable {
     private String translatorName;
     private String sql;
     private Integer rowCount;
-    private Blob plan;
+    private Blob queryplan;
     
     public CommandEnitity() {
         // default
@@ -81,7 +81,7 @@ public class CommandEnitity implements Serializable {
         this.rowCount = msg.getRowCount();
         if ((msg.getPlan() != null && msg.getStatus() == Event.PLAN)) {
             try {
-                this.plan = new SerialBlob(msg.getPlan().toString().getBytes());
+                this.queryplan = new SerialBlob(msg.getPlan().toString().getBytes());
             } catch (SerialException e) {
                 //ignore
             } catch (SQLException e) {
@@ -91,7 +91,7 @@ public class CommandEnitity implements Serializable {
     }
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public long getId() {
         return this.id;
@@ -245,12 +245,12 @@ public class CommandEnitity implements Serializable {
         this.rowCount = value;
     }
 
-    @Column(name = "plan")
-    public Blob getPlan() {
-        return this.plan;
+    @Column(name = "queryplan")
+    public Blob getQueryplan() {
+        return this.queryplan;
     }
 
-    public void setPlan(Blob plan) {
-        this.plan = plan;
+    public void setQueryplan(Blob plan) {
+        this.queryplan = plan;
     }
 }
