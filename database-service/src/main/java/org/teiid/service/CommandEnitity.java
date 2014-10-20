@@ -164,7 +164,7 @@ public class CommandEnitity implements Serializable {
         this.applicationName = value;
     }
     
-    @Column(name = "transactionid", length=100)
+    @Column(name = "transactionid", length=256)
     public String getTransactionID() {
         return this.transactionId;
     }
