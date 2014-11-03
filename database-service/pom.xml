@@ -4,7 +4,7 @@
     <parent>
         <artifactId>extensions</artifactId>
         <groupId>org.jboss.teiid</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </parent>
     <groupId>org.jboss.teiid.extensions</groupId>
     <artifactId>database-service</artifactId>
