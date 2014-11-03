@@ -3,19 +3,19 @@
 	<parent>
     	<groupId>org.jboss.integration-platform</groupId>
     	<artifactId>jboss-integration-platform-parent</artifactId>
-    	<version>6.0.0.CR9</version>	
+    	<version>6.0.0.CR13</version>	
 	</parent>
     <name>extensions</name>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.teiid</groupId>
     <artifactId>extensions</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>pom</packaging>
     <url>http://teiid.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.org.jboss.integration-platform>6.0.0.CR9</version.org.jboss.integration-platform>
+        <version.org.jboss.integration-platform>6.0.0.CR13</version.org.jboss.integration-platform>
         
         <version.jboss.bom>1.0.7.Final</version.jboss.bom>
         <version.teiid.project>8.7.0.Final</version.teiid.project>
@@ -141,7 +141,7 @@
             <dependency>
                 <groupId>org.hibernate.javax.persistence</groupId>
                 <artifactId>hibernate-jpa-2.0-api</artifactId>
-                <version>${version.org.hibernate.javax.persistence}</version>
+                <version>${version.org.hibernate.javax.persistence.hibernate-jpa-2.0-api}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
