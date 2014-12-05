@@ -236,7 +236,7 @@ public class CommandEnitity implements Serializable {
         this.sql = sql;
     }
     
-    @Column(name = "rowcount")
+    @Column(name = "row_count")
     public Integer getRowCount() {
         return this.rowCount;
     }
