@@ -11,7 +11,7 @@ batch
 /profile=full-ha/subsystem=datasources/data-source=teiid-log-ds:add(jndi-name=java:/teiid-log-ds,  driver-name="${db.driver_name}",  connection-url="${db.url}", user-name="${db.user}", password="${db.password}", enabled=true, use-java-context=true )
 /profile=full-ha/subsystem=datasources/data-source=teiid-log-ds:enable
 
-deploy /home/thauser/DV-6.1.0/jboss-eap-6.3/dataVirtualization/database-service.jar --all-server-groups
+deploy scripts/database-service.jar --all-server-groups
 
 /profile=default/subsystem=logging/custom-handler=TEIID_JPA_LOG:add(class=org.teiid.logger.DatabaseAppender, module=org.jboss.teiid.extensions, level=DEBUG)
 /profile=default/subsystem=logging/async-handler=TEIID_COMMAND_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[handle=TEIID_JPA_LOG], enabled=true)
