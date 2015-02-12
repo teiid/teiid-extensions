@@ -16,19 +16,13 @@ deploy scripts/database-service.jar --all-server-groups
 /profile=default/subsystem=logging/custom-handler=TEIID_JPA_LOG:add(class=org.teiid.logger.DatabaseAppender, module=org.jboss.teiid.extensions, level=DEBUG)
 /profile=default/subsystem=logging/async-handler=TEIID_COMMAND_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[handle=TEIID_JPA_LOG], enabled=true)
 /profile=default/subsystem=logging/async-handler=TEIID_AUDIT_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[handle=TEIID_JPA_LOG], enabled=true)
-/profile=default/subsystem=logging/logger=org.teiid.COMMAND_LOG:add(level=DEBUG, handlers=[handler=TEIID_COMMAND_LOG])
-/profile=default/subsystem=logging/logger=org.teiid.AUDIT_LOG:add(level=DEBUG, handlers=[handler=TEIID_AUDIT_LOG])
 
 /profile=ha/subsystem=logging/custom-handler=TEIID_JPA_LOG:add(class=org.teiid.logger.DatabaseAppender, module=org.jboss.teiid.extensions, level=DEBUG)
 /profile=ha/subsystem=logging/async-handler=TEIID_COMMAND_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[handle=TEIID_JPA_LOG], enabled=true)
 /profile=ha/subsystem=logging/async-handler=TEIID_AUDIT_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[handle=TEIID_JPA_LOG], enabled=true)
-/profile=ha/subsystem=logging/logger=org.teiid.COMMAND_LOG:add(level=DEBUG, handlers=[handler=TEIID_COMMAND_LOG])
-/profile=ha/subsystem=logging/logger=org.teiid.AUDIT_LOG:add(level=DEBUG, handlers=[handler=TEIID_AUDIT_LOG])
 
 /profile=full-ha/subsystem=logging/custom-handler=TEIID_JPA_LOG:add(class=org.teiid.logger.DatabaseAppender, module=org.jboss.teiid.extensions, level=DEBUG)
 /profile=full-ha/subsystem=logging/async-handler=TEIID_COMMAND_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[handle=TEIID_JPA_LOG], enabled=true)
 /profile=full-ha/subsystem=logging/async-handler=TEIID_AUDIT_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[handle=TEIID_JPA_LOG], enabled=true)
-/profile=full-ha/subsystem=logging/logger=org.teiid.COMMAND_LOG:add(level=DEBUG, handlers=[handler=TEIID_COMMAND_LOG])
-/profile=full-ha/subsystem=logging/logger=org.teiid.AUDIT_LOG:add(level=DEBUG, handlers=[handler=TEIID_AUDIT_LOG])
 
 run-batch

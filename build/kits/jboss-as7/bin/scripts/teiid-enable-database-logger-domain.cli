@@ -1,0 +1,14 @@
+connect
+
+batch
+
+/profile=default/subsystem=logging/logger=org.teiid.COMMAND_LOG:add(level=DEBUG, handlers=[handler=TEIID_COMMAND_LOG])
+/profile=default/subsystem=logging/logger=org.teiid.AUDIT_LOG:add(level=DEBUG, handlers=[handler=TEIID_AUDIT_LOG])
+
+/profile=ha/subsystem=logging/logger=org.teiid.COMMAND_LOG:add(level=DEBUG, handlers=[handler=TEIID_COMMAND_LOG])
+/profile=ha/subsystem=logging/logger=org.teiid.AUDIT_LOG:add(level=DEBUG, handlers=[handler=TEIID_AUDIT_LOG])
+
+/profile=full-ha/subsystem=logging/logger=org.teiid.COMMAND_LOG:add(level=DEBUG, handlers=[handler=TEIID_COMMAND_LOG])
+/profile=full-ha/subsystem=logging/logger=org.teiid.AUDIT_LOG:add(level=DEBUG, handlers=[handler=TEIID_AUDIT_LOG])
+
+run-batch
