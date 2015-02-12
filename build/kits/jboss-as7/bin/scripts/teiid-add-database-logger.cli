@@ -11,7 +11,4 @@ deploy scripts/database-service.jar
 /subsystem=logging/async-handler=TEIID_COMMAND_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[handle=TEIID_JPA_LOG], enabled=true)
 /subsystem=logging/async-handler=TEIID_AUDIT_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[handle=TEIID_JPA_LOG], enabled=true)
 
-/subsystem=logging/logger=org.teiid.COMMAND_LOG:add(level=DEBUG, handlers=[handler=TEIID_COMMAND_LOG])
-/subsystem=logging/logger=org.teiid.AUDIT_LOG:add(level=DEBUG, handlers=[handler=TEIID_AUDIT_LOG])
-
 run-batch
