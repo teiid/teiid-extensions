@@ -54,11 +54,6 @@
 			<artifactId>teiid-client</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.jboss.teiid</groupId>
-			<artifactId>teiid-client</artifactId>
-			<scope>provided</scope>
-		</dependency>	
         <dependency>
             <groupId>org.jboss.teiid</groupId>
             <artifactId>teiid-admin</artifactId>
@@ -77,7 +72,7 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>${project.artifactId}.${version}</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-ejb-plugin</artifactId>
