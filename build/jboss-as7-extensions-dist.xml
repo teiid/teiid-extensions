@@ -42,7 +42,14 @@
         <includes>
           <include>database-service-${project.version}.jar</include>
         </includes>      
-    </fileSet>                 
+    </fileSet>  
+    <fileSet>
+        <directory>target/kits/module</directory>
+        <outputDirectory>${jbossas-module-root}/org/jboss/teiid/extensions/main</outputDirectory>      
+        <includes>
+          <include>module.xml</include>
+        </includes>      
+    </fileSet>                      
   </fileSets>
   <!--  these have external dependent clients like connectors-->
   <moduleSets>
