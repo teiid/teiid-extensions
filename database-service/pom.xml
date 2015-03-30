@@ -4,7 +4,7 @@
     <parent>
         <artifactId>extensions</artifactId>
         <groupId>org.jboss.teiid</groupId>
-        <version>0.0.1</version>
+        <version>1.0.0</version>
     </parent>
     <groupId>org.jboss.teiid.extensions</groupId>
     <artifactId>database-service</artifactId>
@@ -72,7 +72,7 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}.${version}</finalName>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-ejb-plugin</artifactId>

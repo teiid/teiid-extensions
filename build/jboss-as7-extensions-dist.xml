@@ -40,7 +40,7 @@
         <directory>../database-service/target</directory>
         <outputDirectory>/bin/scripts</outputDirectory>      
         <includes>
-          <include>database-service.jar</include>
+          <include>database-service-${project.version}.jar</include>
         </includes>      
     </fileSet>                 
   </fileSets>
@@ -55,7 +55,7 @@
       <binaries>
         <includeDependencies>false</includeDependencies>
         <unpack>false</unpack>
-        <outputDirectory>modules/system/layers/base/org/jboss/teiid/extensions/main</outputDirectory>
+        <outputDirectory>${jbossas-module-root}/org/jboss/teiid/extensions/main</outputDirectory>
       </binaries>
     </moduleSet>
 
