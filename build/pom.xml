@@ -10,6 +10,12 @@
     <name>Build</name>
     <description>Teiid Extensions Build</description>
     
+    <properties>
+    	<!-- properties to control placement of artifacts in the kit-->
+            <db.jarloc>dataVirtualization/logging</db.jarloc>
+            <cli.scriploc>/cli-scripts</cli.scriploc>
+    </properties>
+    
     <dependencies>
 		<dependency>
 			<groupId>org.jboss.teiid.extensions</groupId>
