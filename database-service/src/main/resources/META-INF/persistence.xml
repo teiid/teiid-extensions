@@ -24,9 +24,9 @@
       <jta-data-source>java:/teiid-log-ds</jta-data-source>
       <properties>
          <!-- Properties for Hibernate -->
-         <property name="hibernate.hbm2ddl.auto" value="create" />
-         <property name="hibernate.show_sql" value="false" />
-	 <property name="hibernate.jdbc.batch_size" value="25"/>
+		<property name="hibernate.hbm2ddl.auto" value="update" />
+		<property name="hibernate.show_sql" value="false" />
+		<property name="hibernate.jdbc.batch_size" value="25"/>
       </properties>
    </persistence-unit>
 </persistence>
