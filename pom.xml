@@ -22,6 +22,10 @@
 
         <jbossas-module-root>modules/system/layers/base</jbossas-module-root>
 
+    	<!-- properties to control placement of build artifacts in the kit-->
+        <db.jarloc>bin/scripts</db.jarloc>
+        <cli.scriploc>/bin/scripts</cli.scriploc>
+
     </properties>
 
 	<scm>
