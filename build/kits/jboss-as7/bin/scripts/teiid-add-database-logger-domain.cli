@@ -2,9 +2,6 @@ connect
 
 batch
 
-/profile=default/subsystem=datasources/data-source=teiid-log-ds:add(jndi-name=java:/teiid-log-ds,  driver-name="${db.driver_name}",  connection-url="${db.url}", user-name="${db.user}", password="${db.password}", enabled=true, use-java-context=true )
-/profile=default/subsystem=datasources/data-source=teiid-log-ds:enable
-
 /profile=ha/subsystem=datasources/data-source=teiid-log-ds:add(jndi-name=java:/teiid-log-ds,  driver-name="${db.driver_name}",  connection-url="${db.url}", user-name="${db.user}", password="${db.password}", enabled=true, use-java-context=true )
 /profile=ha/subsystem=datasources/data-source=teiid-log-ds:enable
 
