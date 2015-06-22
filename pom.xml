@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.teiid</groupId>
     <artifactId>extensions</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>pom</packaging>
     <url>http://teiid.org</url>
 
@@ -22,10 +22,9 @@
 
         <jbossas-module-root>modules/system/layers/base</jbossas-module-root>
 
-    	<!-- properties to control placement of build artifacts in the kit-->
+    	<!-- properties to control placement of build artifacts in the kit -->
         <db.jarloc>bin/scripts</db.jarloc>
         <cli.scriploc>/bin/scripts</cli.scriploc>
-
     </properties>
 
 	<scm>
