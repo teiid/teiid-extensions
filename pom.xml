@@ -18,13 +18,13 @@
         <version.org.jboss.integration-platform>6.0.0.CR26</version.org.jboss.integration-platform>
         
         <version.jboss.bom>1.0.7.Final</version.jboss.bom>
-        <version.teiid.project>8.7.0.Final</version.teiid.project>
+        <version.teiid.project>8.10.0.Final</version.teiid.project>
 
-        <jbossas-module-root>modules/system/layers/dv</jbossas-module-root>
+        <jbossas-module-root>modules/system/layers/base</jbossas-module-root>
 
     	<!-- properties to control placement of artifacts in the kit-->
-        <db.jarloc>dataVirtualization/logging</db.jarloc>
-        <cli.scriploc>/cli-scripts</cli.scriploc>
+        <db.jarloc>bin/scripts</db.jarloc>
+        <cli.scriploc>/bin/scripts</cli.scriploc>
 
     </properties>
 
