@@ -3,24 +3,25 @@
 	<parent>
     	<groupId>org.jboss.integration-platform</groupId>
     	<artifactId>jboss-integration-platform-parent</artifactId>
-    	<version>6.0.0.CR26</version>	
+    	<version>6.0.0.CR30</version>	
+    	<relativePath></relativePath>
 	</parent>
     <name>extensions</name>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.teiid</groupId>
     <artifactId>extensions</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <packaging>pom</packaging>
     <url>http://teiid.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.org.jboss.integration-platform>6.0.0.CR26</version.org.jboss.integration-platform>
+        <version.org.jboss.integration-platform>6.0.0.CR30</version.org.jboss.integration-platform>
         
         <version.jboss.bom>1.0.7.Final</version.jboss.bom>
-        <version.teiid.project>8.10.0.Final</version.teiid.project>
+        <version.teiid.project>8.12.0.Final</version.teiid.project>
 
-        <jbossas-module-root>modules/system/layers/base</jbossas-module-root>
+        <jbossas-module-root>modules/system/layers/dv</jbossas-module-root>
 
     	<!-- properties to control placement of artifacts in the kit-->
         <db.jarloc>bin/scripts</db.jarloc>

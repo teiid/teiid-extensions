@@ -4,7 +4,8 @@
     <parent>
         <artifactId>extensions</artifactId>
         <groupId>org.jboss.teiid</groupId>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
+        <relativePath>..</relativePath>
     </parent>
     <groupId>org.jboss.teiid.extensions</groupId>
     <artifactId>database-service</artifactId>
