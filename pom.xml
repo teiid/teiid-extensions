@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.org.jboss.integration-platform>6.0.0.CR30</version.org.jboss.integration-platform>
         
-        <version.jboss.bom>1.0.7.Final</version.jboss.bom>
+        <version.jboss.bom>6.4.4.GA</version.jboss.bom>
         <version.teiid.project>8.12.0.Final</version.teiid.project>
 
         <jbossas-module-root>modules/system/layers/dv</jbossas-module-root>
@@ -98,14 +98,14 @@
 			</dependency>  
          
             <dependency>
-                <groupId>org.jboss.bom</groupId>
+                <groupId>org.jboss.bom.eap</groupId>
                 <artifactId>jboss-javaee-6.0-with-tools</artifactId>
                 <version>${version.jboss.bom}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.jboss.bom</groupId>
+                <groupId>org.jboss.bom.eap</groupId>
                 <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
                 <version>${version.jboss.bom}</version>
                 <type>pom</type>
