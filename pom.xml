@@ -24,9 +24,9 @@
         <jbossas-module-root>modules/system/layers/dv</jbossas-module-root>
 
     	<!-- properties to control placement of artifacts in the kit-->
-        <db.jarloc>bin/scripts</db.jarloc>
-        <cli.scriploc>/bin/scripts</cli.scriploc>
-
+        <db.jarloc>dataVirtualization/logging</db.jarloc>
+        <cli.scriploc>/cli-scripts</cli.scriploc>
+ 
     </properties>
 
 	<scm>

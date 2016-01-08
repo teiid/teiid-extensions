@@ -3,7 +3,6 @@
         <artifactId>extensions</artifactId>
         <groupId>org.jboss.teiid</groupId>
         <version>1.2.0</version>
-        <relativePath>..</relativePath>
     </parent>
     <groupId>org.jboss.teiid.extensions</groupId>
     <modelVersion>4.0.0</modelVersion>
