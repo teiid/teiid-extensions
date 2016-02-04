@@ -18,13 +18,13 @@ batch
 /server-group=main-server-group/deployment=database-service.jar:add(enabled=true)
 /server-group=other-server-group/deployment=database-service.jar:add(enabled=true)
 
-/profile=ha/subsystem=logging/custom-handler=TEIID_JPA_LOG:add(class=org.teiid.logger.DatabaseAppender, module=org.jboss.teiid.extensions, level=WARN)
-/profile=ha/subsystem=logging/async-handler=TEIID_COMMAND_LOG:add(level=WARN, queue-length=50, overflow-action=BLOCK, subhandlers=[TEIID_JPA_LOG], enabled=true)
-/profile=ha/subsystem=logging/async-handler=TEIID_AUDIT_LOG:add(level=WARN, queue-length=50, overflow-action=BLOCK, subhandlers=[TEIID_JPA_LOG], enabled=true)
+/profile=ha/subsystem=logging/custom-handler=TEIID_JPA_LOG:add(class=org.teiid.logger.DatabaseAppender, module=org.jboss.teiid.extensions, level=DEBUG)
+/profile=ha/subsystem=logging/async-handler=TEIID_COMMAND_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[TEIID_JPA_LOG], enabled=true)
+/profile=ha/subsystem=logging/async-handler=TEIID_AUDIT_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[TEIID_JPA_LOG], enabled=true)
 
-/profile=full-ha/subsystem=logging/custom-handler=TEIID_JPA_LOG:add(class=org.teiid.logger.DatabaseAppender, module=org.jboss.teiid.extensions, level=WARN)
-/profile=full-ha/subsystem=logging/async-handler=TEIID_COMMAND_LOG:add(level=WARN, queue-length=50, overflow-action=BLOCK, subhandlers=[TEIID_JPA_LOG], enabled=true)
-/profile=full-ha/subsystem=logging/async-handler=TEIID_AUDIT_LOG:add(level=WARN, queue-length=50, overflow-action=BLOCK, subhandlers=[TEIID_JPA_LOG], enabled=true)
+/profile=full-ha/subsystem=logging/custom-handler=TEIID_JPA_LOG:add(class=org.teiid.logger.DatabaseAppender, module=org.jboss.teiid.extensions, level=DEBUG)
+/profile=full-ha/subsystem=logging/async-handler=TEIID_COMMAND_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[TEIID_JPA_LOG], enabled=true)
+/profile=full-ha/subsystem=logging/async-handler=TEIID_AUDIT_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[TEIID_JPA_LOG], enabled=true)
 
 
 run-batch
