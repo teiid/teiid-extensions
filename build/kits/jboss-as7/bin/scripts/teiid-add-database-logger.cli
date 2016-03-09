@@ -11,5 +11,8 @@ batch
 /subsystem=logging/async-handler=TEIID_COMMAND_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[TEIID_JPA_LOG], enabled=true)
 /subsystem=logging/async-handler=TEIID_AUDIT_LOG:add(level=DEBUG, queue-length=50, overflow-action=BLOCK, subhandlers=[TEIID_JPA_LOG], enabled=true)
 
+/subsystem=logging/logger=org.teiid.COMMAND_LOG:add(level=DEBUG, handlers=[TEIID_COMMAND_LOG], use-parent-handlers=false)
+/subsystem=logging/logger=org.teiid.AUDIT_LOG:add(level=DEBUG, handlers=[TEIID_AUDIT_LOG], use-parent-handlers=false)
+
 
 run-batch
