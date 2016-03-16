@@ -72,8 +72,8 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}-${project.version}</finalName>
-        <plugins>
+         <finalName>${project.artifactId}</finalName>
+       <plugins>
             <plugin>
                 <artifactId>maven-ejb-plugin</artifactId>
                 <configuration>

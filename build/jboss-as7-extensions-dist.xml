@@ -20,7 +20,7 @@
         <directory>../database-service/target</directory>
         <outputDirectory>${db.jarloc}</outputDirectory>      
         <includes>
-          <include>database-service-${project.version}.jar</include>
+          <include>database-service.jar</include>
         </includes>      
     </fileSet>  
     <fileSet>
