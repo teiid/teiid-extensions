@@ -52,12 +52,21 @@ public class AuditEnitity implements Serializable {
         this.context = msg.getContext();
         this.activity = msg.getActivity();
         this.resources = StringUtil.toString(msg.getResources());
-        this.requestId = msg.getCommandContext().getRequestId();
-        this.principal = msg.getCommandContext().getUserName();
-        this.vdbName = msg.getCommandContext().getVdbName();
-        this.vdbVersion = msg.getCommandContext().getVdbVersion();
-        this.sessionId = msg.getCommandContext().getSession().getSessionId();
-        this.applicationName = msg.getCommandContext().getSession().getApplicationName();
+        if (msg.getCommandContext() != null) {
+            this.requestId = msg.getCommandContext().getRequestId();
+            this.principal = msg.getCommandContext().getUserName();
+            this.vdbName = msg.getCommandContext().getVdbName();
+            this.vdbVersion = msg.getCommandContext().getVdbVersion();
+            this.sessionId = msg.getCommandContext().getSession().getSessionId();
+            this.applicationName = msg.getCommandContext().getSession().getApplicationName();
+        } else if (msg.getLogonInfo() != null) {
+            //this is a logon/logoff, which is not well accounted for yet
+            this.principal = msg.getLogonInfo().getUserName();
+            this.vdbName = msg.getLogonInfo().getVdbName();
+            //uses a string, which is what the user requested exactly
+            //this.vdbVersion = msg.getLogonInfo().getVdbVersion();
+            this.applicationName = msg.getLogonInfo().getApplicationName();
+        }
     }
 
     @Id
