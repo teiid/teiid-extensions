@@ -43,7 +43,7 @@ public class CommandEnitity implements Serializable {
     private String sessionId;
     private String requestId;
     private String vdbName;
-    private int vdbVersion;
+    private String vdbVersion;
     private String applicationName;
     private String transactionId;
     private String principal;
@@ -53,7 +53,7 @@ public class CommandEnitity implements Serializable {
     private String modelName;
     private String translatorName;
     private String sql;
-    private Integer rowCount;
+    private Long rowCount;
     private Blob queryplan;
     
     public CommandEnitity() {
@@ -147,11 +147,11 @@ public class CommandEnitity implements Serializable {
     }
     
     @Column(name = "vdbversion")
-    public int getVdbVersion() {
+    public String getVdbVersion() {
         return this.vdbVersion;
     }
 
-    public void setVdbVersion(int value) {
+    public void setVdbVersion(String value) {
         this.vdbVersion = value;
     }
 
@@ -237,11 +237,11 @@ public class CommandEnitity implements Serializable {
     }
     
     @Column(name = "row_count")
-    public Integer getRowCount() {
+    public Long getRowCount() {
         return this.rowCount;
     }
     
-    public void setRowCount(Integer value) {
+    public void setRowCount(Long value) {
         this.rowCount = value;
     }
 
