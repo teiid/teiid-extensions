@@ -42,6 +42,12 @@ public class AuditEnitity implements Serializable {
     private int vdbVersion;
     private String sessionId;
     private String applicationName;
+    private String authType;
+    private String userName;
+    private String clientHostName;
+    private String clientIpAddress;
+    private String clientMac;
+    private boolean passThrough;
     
     
     public AuditEnitity() {
@@ -52,25 +58,22 @@ public class AuditEnitity implements Serializable {
         this.context = msg.getContext();
         this.activity = msg.getActivity();
         this.resources = StringUtil.toString(msg.getResources());
-        if (msg.getSession() != null) {
-            //request, or logon success
-            this.principal = msg.getSession().getUserName();
-            this.vdbName = msg.getSession().getVDBName();
-            this.vdbVersion = msg.getSession().getVDBVersion();
-            this.applicationName = msg.getSession().getApplicationName();
-            this.sessionId = msg.getSession().getSessionId();
-        } else if (msg.getLogonInfo() != null) {
-            //logon attempt or fail
-            this.principal = msg.getLogonInfo().getUserName();
-            this.vdbName = msg.getLogonInfo().getVdbName();
-            //uses a string, which is what the user requested exactly
-            //this.vdbVersion = msg.getLogonInfo().getVdbVersion();
-            this.applicationName = msg.getLogonInfo().getApplicationName();
-        }
+
         if (msg.getCommandContext() != null) {
-            //request
             this.requestId = msg.getCommandContext().getRequestId();
-        } 
+            this.principal = msg.getCommandContext().getUserName();
+            this.vdbName = msg.getCommandContext().getVdbName();
+            this.vdbVersion = msg.getCommandContext().getVdbVersion();
+            this.sessionId = msg.getCommandContext().getSession().getSessionId();
+            this.applicationName = msg.getCommandContext().getSession().getApplicationName();
+        } else if (msg.getLogonInfo() != null) {
+            this.authType = msg.getLogonInfo().getAuthType();
+            this.userName = msg.getLogonInfo().getUserName();
+            this.clientHostName = msg.getLogonInfo().getClientHostName();
+            this.clientIpAddress = msg.getLogonInfo().getClientIpAddress();
+            this.clientMac = msg.getLogonInfo().getClientMac();
+            this.passThrough = msg.getLogonInfo().isPassThrough();
+        }
     }
 
     @Id
@@ -163,5 +166,59 @@ public class AuditEnitity implements Serializable {
 
     public void setApplicationName(String applicationName) {
         this.applicationName = applicationName;
+    }    
+
+    @Column(name = "authType", length=50)
+    public String getAuthType() {
+        return authType;
+    }
+
+    public void setAuthType(String authType) {
+        this.authType = authType;
+    }
+
+    @Column(name = "userName", length=255)
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    @Column(name = "clientHostName", length=255)
+    public String getClientHostName() {
+        return clientHostName;
+    }
+
+    public void setClientHostName(String clientHostName) {
+        this.clientHostName = clientHostName;
+    }
+
+    @Column(name = "clientIpAddress", length=50)
+    public String getClientIpAddress() {
+        return clientIpAddress;
+    }
+
+    public void setClientIpAddress(String clientIpAddress) {
+        this.clientIpAddress = clientIpAddress;
+    }
+
+    @Column(name = "clientMac", length=50)
+    public String getClientMac() {
+        return clientMac;
+    }
+
+    public void setClientMac(String clientMac) {
+        this.clientMac = clientMac;
+    }
+
+    @Column(name = "passThrough", length=10)
+    public boolean isPassThrough() {
+        return passThrough;
+    }
+
+    public void setPassThrough(boolean passThrough) {
+        this.passThrough = passThrough;
     }    
 }
