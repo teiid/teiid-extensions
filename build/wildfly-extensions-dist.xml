@@ -13,7 +13,7 @@
     <fileSets>
        
     <fileSet>
-        <directory>target/kits/jboss-as7/bin/scripts</directory>
+        <directory>target/kits/wildfly/bin/scripts</directory>
         <outputDirectory>${cli.scriploc}</outputDirectory>           
     </fileSet>
     <fileSet>

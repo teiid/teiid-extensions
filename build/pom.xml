@@ -70,7 +70,7 @@
 
                 <configuration>
                     <descriptors>
-                        <descriptor>jboss-as7-extensions-dist.xml</descriptor>
+                        <descriptor>wildfly-extensions-dist.xml</descriptor>
                     </descriptors>
                 </configuration>
 

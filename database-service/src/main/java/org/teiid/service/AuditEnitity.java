@@ -23,7 +23,11 @@ package org.teiid.service;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import org.teiid.core.util.StringUtil;
 import org.teiid.logging.AuditMessage;
@@ -43,7 +47,6 @@ public class AuditEnitity implements Serializable {
     private String sessionId;
     private String applicationName;
     private String authType;
-    private String userName;
     private String clientHostName;
     private String clientIpAddress;
     private String clientMac;
@@ -58,18 +61,30 @@ public class AuditEnitity implements Serializable {
         this.context = msg.getContext();
         this.activity = msg.getActivity();
         this.resources = StringUtil.toString(msg.getResources());
-        this.requestId = msg.getCommandContext().getRequestId();
-        this.principal = msg.getCommandContext().getUserName();
-        this.vdbName = msg.getCommandContext().getVdbName();
-        this.vdbVersion = msg.getCommandContext().getVdbVersion();
-        this.sessionId = msg.getCommandContext().getSession().getSessionId();
-        this.applicationName = msg.getCommandContext().getSession().getApplicationName();
-        this.authType = msg.getLogonInfo().getAuthType();
-        this.userName = msg.getLogonInfo().getUserName();
-        this.clientHostName = msg.getLogonInfo().getClientHostName();
-        this.clientIpAddress = msg.getLogonInfo().getClientIpAddress();
-        this.clientMac = msg.getLogonInfo().getClientMac();
-        this.passThrough = msg.getLogonInfo().isPassThrough();
+        if (msg.getSession() != null) {
+            //request, or logon success
+            this.principal = msg.getSession().getUserName();
+            this.vdbName = msg.getSession().getVDBName();
+            this.vdbVersion = msg.getSession().getVDBVersion();
+            this.applicationName = msg.getSession().getApplicationName();
+            this.sessionId = msg.getSession().getSessionId();
+        } else if (msg.getLogonInfo() != null) {
+            //logon attempt or fail
+            this.principal = msg.getLogonInfo().getUserName();
+            this.vdbName = msg.getLogonInfo().getVdbName();
+            this.vdbVersion = msg.getLogonInfo().getVdbVersion();
+            this.applicationName = msg.getLogonInfo().getApplicationName();
+            
+            this.authType = msg.getLogonInfo().getAuthType();
+            this.clientHostName = msg.getLogonInfo().getClientHostName();
+            this.clientIpAddress = msg.getLogonInfo().getClientIpAddress();
+            this.clientMac = msg.getLogonInfo().getClientMac();
+            this.passThrough = msg.getLogonInfo().isPassThrough();
+        }
+        if (msg.getCommandContext() != null) {
+            //request
+            this.requestId = msg.getCommandContext().getRequestId();
+        } 
     }
 
     @Id
@@ -171,15 +186,6 @@ public class AuditEnitity implements Serializable {
 
     public void setAuthType(String authType) {
         this.authType = authType;
-    }
-
-    @Column(name = "userName", length=255)
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     @Column(name = "clientHostName", length=255)
