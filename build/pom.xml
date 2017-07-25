@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>extensions</artifactId>
-        <groupId>org.jboss.teiid</groupId>
+        <groupId>org.teiid</groupId>
         <version>1.2.0</version>
         <relativePath>..</relativePath>
     </parent>
-    <groupId>org.jboss.teiid.extensions</groupId>
+    <groupId>org.teiid.extensions</groupId>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>build-extensions</artifactId>
     <name>Build</name>
@@ -13,12 +13,12 @@
     
     <dependencies>
 		<dependency>
-			<groupId>org.jboss.teiid.extensions</groupId>
+			<groupId>org.teiid.extensions</groupId>
 			<artifactId>database-service</artifactId>
 			<type>ejb</type>
 		</dependency>
 		<dependency>
-			<groupId>org.jboss.teiid.extensions</groupId>
+			<groupId>org.teiid.extensions</groupId>
 			<artifactId>database-logging-appender</artifactId>
 		</dependency>  
     </dependencies>

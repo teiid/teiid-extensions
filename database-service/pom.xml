@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>extensions</artifactId>
-        <groupId>org.jboss.teiid</groupId>
+        <groupId>org.teiid</groupId>
         <version>1.2.0</version>
         <relativePath>..</relativePath>
     </parent>
-    <groupId>org.jboss.teiid.extensions</groupId>
+    <groupId>org.teiid.extensions</groupId>
     <artifactId>database-service</artifactId>
     <packaging>ejb</packaging>
     <name>Database Service Bean</name>
@@ -41,27 +41,27 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.teiid</groupId>
+            <groupId>org.teiid</groupId>
             <artifactId>teiid-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.teiid</groupId>
+            <groupId>org.teiid</groupId>
             <artifactId>teiid-common-core</artifactId>
             <scope>provided</scope>
         </dependency>
 		<dependency>
-			<groupId>org.jboss.teiid</groupId>
+			<groupId>org.teiid</groupId>
 			<artifactId>teiid-client</artifactId>
 			<scope>provided</scope>
 		</dependency>
         <dependency>
-            <groupId>org.jboss.teiid</groupId>
+            <groupId>org.teiid</groupId>
             <artifactId>teiid-admin</artifactId>
             <scope>provided</scope>
         </dependency>         	
 		<dependency>
-			<groupId>org.jboss.teiid.extensions</groupId>
+			<groupId>org.teiid.extensions</groupId>
 			<artifactId>database-logging-appender</artifactId>
 		</dependency>
         <!-- Test scope dependencies -->
